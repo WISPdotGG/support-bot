@@ -113,6 +113,8 @@ channel_groups:
 
 permissions:
 - group: admin
+
+# Please only add bad words that are based on prejudice
 filters:
 - term: nigger
   reason:
