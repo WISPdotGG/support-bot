@@ -1,0 +1,119 @@
+server_id: 589788494524579850
+config:
+  prefix: +
+  clear_commands: true
+channel_groups:
+
+# general & wisp support
+- channels:
+  - 600008250577911825 # mod-talk
+  - 589788494524579852 # general
+  - 749570444734103584 # support/wisp
+
+  mentions:
+    ping:
+      reaction:
+      - 🦥
+      response:
+      - I am sloth man
+    mention:
+      reaction:
+      - 🦥
+      response:
+      - ""
+  commands:
+  - command: ping
+    response:
+    - I am alive!
+  keywords:
+
+  - keyword: error while attempting to fetch list of Eggs from the panel
+    response:
+    - Hey &user&! This error typically indicates your daemon is failing to access the eggs on the panel. The most common cause is misconfiguration.
+    - 1) Ensure the license and panel URL in `/var/lib/wisp/projects.json` are correct.
+    - 2) You can delete `/var/lib/wisp/config/wisp.yaml` to *reset* your config.
+    - 3) Run `wisp restart` to apply any changes
+
+  - keyword: server marked as off
+    response:
+    - "Hey &user&! Please move this issue into the <#760803626900783115> support channel 😇"
+
+  # Tickets
+  - keyword: -new
+    response:
+    - "Hey &user&! To open a ticket go here: https://help.wisp.gg"
+  - keyword: -ticket
+    response:
+    - "Hey &user&! To open a ticket go here: https://help.wisp.gg"
+
+  # FQDN
+  - keyword: send the fqdn
+    response:
+    - "If you don't know how to get your FQDN just ask: 'How do I get the FQDN'"
+
+  - keyword: where is the fqdn
+    response:
+    - "Hey &user&! You can get the FQDN (Fully Qualified Domain Name) for a node by going to the `settings` tab on the node."
+    - "The domain will look something like `2wvs2vnrnu1bbbk0.daemon.panel.gg`"
+  - keyword: get the fqdn
+    response:
+    - "Hey &user&! You can get the FQDN (Fully Qualified Domain Name) for a node by going to the `settings` tab on the node."
+    - "The domain will look something like `2wvs2vnrnu1bbbk0.daemon.panel.gg`"
+  - keyword: get a fqdn
+    response:
+    - "Hey &user&! You can get the FQDN (Fully Qualified Domain Name) for a node by going to the `settings` tab on the node."
+    - "The domain will look something like `2wvs2vnrnu1bbbk0.daemon.panel.gg`"
+
+  # New install
+  - keyword: error connecting to the node
+    response:
+    - "Hey &user&! If this is a new node installation, please wait up to 5 minutes. If you're seeing issues after 5 minutes then please provide the output of `wisp logs` in console"
+  - keyword: red heart
+    response:
+    - "Hey &user&! If this is a new node installation, please wait up to 5 minutes. If you're seeing issues after 5 minutes then please provide the output of `wisp logs` in console"
+
+  # How to change branding
+  - keyword: change branding
+    response:
+    - "Hey &user&! Our branding guide is here: https://notion.wisp.gg/Branding-23299403b7ed4a02af02bc15fa4672ec"
+  - keyword: change the branding
+    response:
+    - "Hey &user&! Our branding guide is here: https://notion.wisp.gg/Branding-23299403b7ed4a02af02bc15fa4672ec"
+  - keyword: change the logo
+    response:
+    - "Hey &user&! Our branding guide is here: https://notion.wisp.gg/Branding-23299403b7ed4a02af02bc15fa4672ec"
+
+  # How to install
+  - keyword: how do I install the panel
+    response:
+    - "Hey &user&! Our install guide is here: https://notion.wisp.gg/Installing-WISP-0a69798b14924dadb625f2d2778a70bd"
+  - keyword: how do I install wisp
+    response:
+    - "Hey &user&! Our install guide is here: https://notion.wisp.gg/Installing-WISP-0a69798b14924dadb625f2d2778a70bd"
+  - keyword: how do I install the daemon
+    response:
+    - "Hey &user&! Our install guide is here: https://notion.wisp.gg/Installing-WISP-0a69798b14924dadb625f2d2778a70bd"
+
+  parsing:
+    image:
+      filetypes:
+      - png
+      - jpg
+    paste:
+      sites:
+      - name: pastebin
+        url: 'https://pastebin.com/'
+        format: 'https://pastebin.com/raw/&filename&'
+      - name: hastebin
+        url: 'https://hastebin.com/'
+        format: 'https://hastebin.com/raw/&filename&'
+      - name: termbin
+        url: 'https://termbin.com/'
+        format: 'https://termbin.com/&filename&'
+
+permissions:
+- group: admin
+filters:
+- term: nigger
+  reason:
+  - the message was removed because it had a bad word in it
